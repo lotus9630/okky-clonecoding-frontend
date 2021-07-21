@@ -9,32 +9,15 @@ import QA from "../components/Home/QA";
 import Tech from "../components/Home/Tech";
 import Header from "../components/Home/Header";
 import MenuList from "../components/Home/MenuList";
-
-const HomeCotainer = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-`;
-
-const HeadContainer = styled.div`
-  position: fixed;
-  width: 210px;
-  height: 100%;
-  border: solid;
-  background: #0059ab;
-  color: white;
-  border: 0;
-`;
-
-const BodyConatainer = styled.div`
-  margin-left: 210px;
-  width: 800px;
-  height: 1500px;
-`;
+import {
+  Container,
+  HeadContainer,
+  BodyContainer,
+} from "../components/boilerplate";
 
 const BodyTopContainer = styled.div`
   display: flex;
-  margin: 50px 20px 20px 20px;
+  margin: 50px 20px 20px 0px;
   height: 200px;
 `;
 
@@ -56,12 +39,12 @@ const BodyMidRightContainer = styled(BodyMidContainer)`
 
 function Home() {
   return (
-    <HomeCotainer>
+    <Container>
       <HeadContainer>
         <Header />
         <MenuList />
       </HeadContainer>
-      <BodyConatainer>
+      <BodyContainer>
         <BodyTopContainer>
           <EditorsChoice />
           <WeeklyBest />
@@ -77,8 +60,8 @@ function Home() {
             <Academy />
           </BodyMidRightContainer>
         </BodyMidContainer>
-      </BodyConatainer>
-    </HomeCotainer>
+      </BodyContainer>
+    </Container>
   );
 }
 

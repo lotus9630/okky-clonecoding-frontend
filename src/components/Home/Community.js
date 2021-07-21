@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import ContentBox from "../ContentBox";
 import { FaComments } from "react-icons/fa";
 

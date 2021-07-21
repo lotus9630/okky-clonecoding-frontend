@@ -1,5 +1,4 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const ContentBox = styled.article`
   color: #0059ab;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { FaSignInAlt, FaUser } from "react-icons/fa";
 
 const HeaderBox = styled.header`
@@ -17,7 +18,15 @@ const User = styled.div`
   display: flex;
   border: solid 1px;
   height: 30px;
-  font-size: 15px;
+  font-size: 13px;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #3381f2;
+  }
 `;
 
 const Login = styled.div`
@@ -38,11 +47,15 @@ function Header() {
       <User>
         <Login>
           <FaSignInAlt />
-          <span>로그인</span>
+          <span>
+            <Link to="/login">로그인</Link>
+          </span>
         </Login>
         <Join>
           <FaUser />
-          <span>회원가입</span>
+          <span>
+            <Link to="/register">회원가입</Link>
+          </span>
         </Join>
       </User>
     </HeaderBox>

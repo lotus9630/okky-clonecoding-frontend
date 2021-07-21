@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import ContentBox from "../ContentBox";
 import { FaBook } from "react-icons/fa";
 
@@ -12,7 +12,6 @@ function Academy() {
   return (
     <AcademyBox>
       <h3>
-        {" "}
         <FaBook className="icon" />
         <span>학원 홍보</span>
       </h3>
