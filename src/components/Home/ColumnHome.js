@@ -1,19 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import ContentBox from "../ContentBox";
-import { FaCode } from "react-icons/fa";
+import ContentBox from "./ContentBox";
+import { FaQuoteLeft } from "react-icons/fa";
 
-const TechBox = styled(ContentBox)`
+const ColumnHomeBox = styled(ContentBox)`
   height: 200px;
   margin: 20px 5px;
 `;
 
-function Tech() {
+function ColumnHome() {
   return (
-    <TechBox>
+    <ColumnHomeBox>
       <h3>
-        <FaCode className="icon" />
-        <span>Tech</span>
+        {" "}
+        <FaQuoteLeft className="icon" />
+        <span>칼럼</span>
       </h3>
       <ul>
         <li>
@@ -58,8 +59,8 @@ function Tech() {
           </div>
         </li>
       </ul>
-    </TechBox>
+    </ColumnHomeBox>
   );
 }
 
-export default Tech;
+export default ColumnHome;

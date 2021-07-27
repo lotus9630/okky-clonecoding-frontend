@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ContentBox from "../ContentBox";
+import ContentBox from "./ContentBox";
 import { FaStar } from "react-icons/fa";
 
 const WeeklyBestBox = styled(ContentBox)`

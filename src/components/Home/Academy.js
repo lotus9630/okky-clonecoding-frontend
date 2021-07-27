@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ContentBox from "../ContentBox";
+import ContentBox from "./ContentBox";
 import { FaBook } from "react-icons/fa";
 
 const AcademyBox = styled(ContentBox)`

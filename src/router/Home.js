@@ -3,10 +3,10 @@ import styled from "styled-components";
 import EditorsChoice from "../components/Home/EditorsChoice";
 import WeeklyBest from "../components/Home/WeeklyBest";
 import Academy from "../components/Home/Academy";
-import Column from "../components/Home/Column";
-import Community from "../components/Home/Community";
-import QA from "../components/Home/QA";
-import Tech from "../components/Home/Tech";
+import ColumnHome from "../components/Home/ColumnHome";
+import CommunityHome from "../components/Home/CommunityHome";
+import QAHome from "../components/Home/QAHome";
+import TechHome from "../components/Home/TechHome";
 import Header from "../components/Home/Header";
 import MenuList from "../components/Home/MenuList";
 import {
@@ -51,12 +51,12 @@ function Home() {
         </BodyTopContainer>
         <BodyMidContainer>
           <BodyMidLeftContainer>
-            <QA />
-            <Community />
+            <QAHome />
+            <CommunityHome />
           </BodyMidLeftContainer>
           <BodyMidRightContainer>
-            <Tech />
-            <Column />
+            <TechHome />
+            <ColumnHome />
             <Academy />
           </BodyMidRightContainer>
         </BodyMidContainer>

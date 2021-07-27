@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import ContentBox from "../ContentBox";
-import { FaComments } from "react-icons/fa";
+import ContentBox from "./ContentBox";
+import { FaCode } from "react-icons/fa";
 
-const CommunityBox = styled(ContentBox)`
-  height: 600px;
+const TechHomeBox = styled(ContentBox)`
+  height: 200px;
+  margin: 20px 5px;
 `;
 
-function Community() {
+function TechHome() {
   return (
-    <CommunityBox>
+    <TechHomeBox>
       <h3>
-        {" "}
-        <FaComments className="icon" />
-        <span>커뮤니티</span>
+        <FaCode className="icon" />
+        <span>Tech</span>
       </h3>
       <ul>
         <li>
@@ -58,8 +58,8 @@ function Community() {
           </div>
         </li>
       </ul>
-    </CommunityBox>
+    </TechHomeBox>
   );
 }
 
-export default Community;
+export default TechHome;

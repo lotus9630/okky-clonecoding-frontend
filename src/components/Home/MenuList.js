@@ -7,6 +7,7 @@ import {
   FaQuoteLeft,
   FaUsers,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MenuListBox = styled.ul`
   list-style: none;
@@ -28,6 +29,14 @@ const MenuListBox = styled.ul`
       padding: 0 0 0 40px;
     }
   }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #3381f2;
+  }
 `;
 
 function Header() {
@@ -35,23 +44,33 @@ function Header() {
     <MenuListBox>
       <li>
         <FaDatabase className="icon" />
-        <span>Q&A</span>
+        <span>
+          <Link to="/articles/qa">Q&A</Link>
+        </span>
       </li>
       <li>
         <FaCode className="icon" />
-        <span>Tech</span>
+        <span>
+          <Link to="/articles/tech">Tech</Link>
+        </span>
       </li>
       <li>
         <FaComments className="icon" />
-        <span>커뮤니티</span>
+        <span>
+          <Link to="/articles/community">커뮤니티</Link>
+        </span>
       </li>
       <li>
         <FaQuoteLeft className="icon" />
-        <span>칼럼</span>
+        <span>
+          <Link to="/articles/column">칼럼</Link>
+        </span>
       </li>
       <li>
         <FaUsers className="icon" />
-        <span>Jobs</span>
+        <span>
+          <Link to="/articles/jobs">Jobs</Link>
+        </span>
       </li>
     </MenuListBox>
   );

@@ -1,20 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import ContentBox from "../ContentBox";
-import { FaQuoteLeft } from "react-icons/fa";
+import ContentBox from "./ContentBox";
+import { FaComments } from "react-icons/fa";
 
-const ColumnBox = styled(ContentBox)`
-  height: 200px;
-  margin: 20px 5px;
+const CommunityHomeBox = styled(ContentBox)`
+  height: 600px;
 `;
 
-function Column() {
+function CommunityHome() {
   return (
-    <ColumnBox>
+    <CommunityHomeBox>
       <h3>
-        {" "}
-        <FaQuoteLeft className="icon" />
-        <span>칼럼</span>
+        <FaComments className="icon" />
+        <span>커뮤니티</span>
       </h3>
       <ul>
         <li>
@@ -59,8 +57,8 @@ function Column() {
           </div>
         </li>
       </ul>
-    </ColumnBox>
+    </CommunityHomeBox>
   );
 }
 
-export default Column;
+export default CommunityHome;

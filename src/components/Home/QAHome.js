@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import ContentBox from "../ContentBox";
+import ContentBox from "./ContentBox";
 import { FaDatabase } from "react-icons/fa";
 
-const QABox = styled(ContentBox)`
+const QAHomeBox = styled(ContentBox)`
   height: 200px;
   margin: 5px 5px 50px 5px;
 `;
 
-function QA() {
+function QAHome() {
   return (
-    <QABox>
+    <QAHomeBox>
       <h3>
         <FaDatabase className="icon" />
         <span>Q&A</span>
@@ -58,8 +58,8 @@ function QA() {
           </div>
         </li>
       </ul>
-    </QABox>
+    </QAHomeBox>
   );
 }
 
-export default QA;
+export default QAHome;

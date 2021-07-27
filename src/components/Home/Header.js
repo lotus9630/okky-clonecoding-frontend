@@ -6,6 +6,14 @@ import { FaSignInAlt, FaUser } from "react-icons/fa";
 const HeaderBox = styled.header`
   text-align: center;
   margin-bottom: 100px;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #3381f2;
+  }
 `;
 
 const Title = styled.h1`
@@ -19,14 +27,6 @@ const User = styled.div`
   border: solid 1px;
   height: 30px;
   font-size: 13px;
-  a {
-    color: white;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #3381f2;
-  }
 `;
 
 const Login = styled.div`
@@ -43,7 +43,9 @@ const Join = styled.div`
 function Header() {
   return (
     <HeaderBox>
-      <Title>OKKY</Title>
+      <Title>
+        <Link to="/">OKKY</Link>
+      </Title>
       <User>
         <Login>
           <FaSignInAlt />
