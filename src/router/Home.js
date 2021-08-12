@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import EditorsChoice from "../components/Home/EditorsChoice";
 import WeeklyBest from "../components/Home/WeeklyBest";
@@ -37,7 +37,7 @@ const BodyMidRightContainer = styled(BodyMidContainer)`
   display: block;
 `;
 
-function Home() {
+function Home({ userObj }) {
   return (
     <Container>
       <HeadContainer>

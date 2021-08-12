@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Header from "../components/Home/Header";
 import MenuList from "../components/Home/MenuList";
@@ -6,6 +7,8 @@ import {
   HeadContainer,
   BodyContainer,
 } from "../components/boilerplate";
+import firebase from "../Firebase";
+import { useHistory } from "react-router";
 
 const LoginTitle = styled.section`
   text-align: left;
@@ -43,7 +46,7 @@ const SNSLogin = styled.article`
   margin-left: 20px;
 `;
 
-const LocalLoginForm = styled.div`
+const LocalLoginForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -65,6 +68,30 @@ const LocalLoginForm = styled.div`
 `;
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  let history = useHistory();
+
+  const onLogin = (e) => {
+    e.preventDefault();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        history.push("/");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
+  const onChange = (e) => {
+    if (e.target.name === "email") {
+      setEmail(e.target.value);
+    } else if (e.target.name === "password") {
+      setPassword(e.target.value);
+    }
+  };
   return (
     <Container>
       <HeadContainer>
@@ -78,9 +105,19 @@ function Login() {
             <div className="login-title-container">
               <h5>로그인 하기</h5>
             </div>
-            <LocalLoginForm>
-              <input type="text" name="id" placeholder="아이디" />
-              <input type="password" name="pw" placeholder="비밀번호" />
+            <LocalLoginForm onSubmit={onLogin}>
+              <input
+                type="email"
+                name="email"
+                placeholder="이메일"
+                onChange={onChange}
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="비밀번호"
+                onChange={onChange}
+              />
               <input type="submit" name="submit" value="로그인" />
             </LocalLoginForm>
           </LocalLogin>

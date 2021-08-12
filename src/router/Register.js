@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "../components/Home/Header";
 import MenuList from "../components/Home/MenuList";
@@ -7,6 +7,8 @@ import {
   HeadContainer,
   BodyContainer,
 } from "../components/boilerplate";
+import firebase from "../Firebase";
+import { useHistory } from "react-router";
 
 const RegisterTitle = styled.section`
   text-align: left;
@@ -44,7 +46,7 @@ const SNSRegister = styled.article`
   margin-left: 20px;
 `;
 
-const LocalRegisterForm = styled.div`
+const LocalRegisterForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -66,6 +68,51 @@ const LocalRegisterForm = styled.div`
 `;
 
 function Register() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
+  const [nickname, setNickname] = useState("");
+  let history = useHistory();
+  const onRegister = (e) => {
+    e.preventDefault();
+    if (password !== passwordCheck) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        user
+          .updateProfile({
+            displayName: nickname,
+          })
+          .catch((error) => {
+            alert(error.message);
+            return;
+          });
+        history.push("/login");
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(error.message);
+        // ..
+      });
+  };
+  const onChange = (e) => {
+    if (e.target.name === "email") {
+      setEmail(e.target.value);
+    } else if (e.target.name === "password") {
+      setPassword(e.target.value);
+    } else if (e.target.name === "passwordCheck") {
+      setPasswordCheck(e.target.value);
+    } else if (e.target.name === "nickname") {
+      setNickname(e.target.value);
+    }
+  };
   return (
     <Container>
       <HeadContainer>
@@ -79,10 +126,32 @@ function Register() {
             <div className="register-title-container">
               <h5>회원 가입하기</h5>
             </div>
-            <LocalRegisterForm>
-              <input type="text" name="id" placeholder="아이디" />
-              <input type="password" name="pw" placeholder="비밀번호" />
-              <input type="text" name="nickname" placeholder="닉네임" />
+            <LocalRegisterForm onSubmit={onRegister}>
+              <input
+                type="email"
+                name="email"
+                placeholder="이메일"
+                onChange={onChange}
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="비밀번호"
+                onChange={onChange}
+              />
+
+              <input
+                type="password"
+                name="passwordCheck"
+                placeholder="비밀번호 재입력"
+                onChange={onChange}
+              />
+              <input
+                type="text"
+                name="nickname"
+                placeholder="닉네임"
+                onChange={onChange}
+              />
               <input type="submit" name="submit" value="계정 생성 하기" />
             </LocalRegisterForm>
           </LocalRegister>
